@@ -1,9 +1,6 @@
 package com.afterlie.footballtracker.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -11,7 +8,9 @@ public class FootballMatch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
     private Team firstTeam;
+    @ManyToOne
     private Team secondTeam;
     private LocalDate dateOfMatch;
 

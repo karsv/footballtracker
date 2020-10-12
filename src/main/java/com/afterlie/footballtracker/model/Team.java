@@ -1,16 +1,18 @@
 package com.afterlie.footballtracker.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String name;
+    private Long id;
+    @Column(unique = true)
+    private String name;
+    private String country;
+    @ManyToMany
+    private List<FootballMatch> matches;
 
     public Team() {
     }
