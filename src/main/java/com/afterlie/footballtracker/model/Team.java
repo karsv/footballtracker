@@ -2,6 +2,7 @@ package com.afterlie.footballtracker.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Team {
@@ -31,5 +32,21 @@ public class Team {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Team team = (Team) o;
+        return Objects.equals(id, team.id) &&
+                Objects.equals(name, team.name) &&
+                Objects.equals(country, team.country) &&
+                Objects.equals(matches, team.matches);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, country, matches);
     }
 }
