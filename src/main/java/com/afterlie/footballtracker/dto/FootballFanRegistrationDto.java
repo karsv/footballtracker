@@ -3,6 +3,7 @@ package com.afterlie.footballtracker.dto;
 import com.afterlie.footballtracker.passwordEqualValidator.PasswordEqualValidator;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Objects;
 
 @PasswordEqualValidator
 public class FootballFanRegistrationDto {
@@ -38,5 +39,20 @@ public class FootballFanRegistrationDto {
 
     public void setRepeatPassword(String repeatPassword) {
         this.repeatPassword = repeatPassword;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FootballFanRegistrationDto that = (FootballFanRegistrationDto) o;
+        return Objects.equals(name, that.name) &&
+                Objects.equals(password, that.password) &&
+                Objects.equals(repeatPassword, that.repeatPassword);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, password, repeatPassword);
     }
 }

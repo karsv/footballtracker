@@ -26,7 +26,7 @@ public class FootballFanServiceImpl implements FootballFanService {
 
     @Override
     @Transactional
-    public FootballFanDto create(@Valid FootballFanRegistrationDto footballFanRegistrationDto) {
+    public FootballFanDto create(FootballFanRegistrationDto footballFanRegistrationDto) {
         if (footballFanRepository.existsByName(footballFanRegistrationDto.getName())) {
             throw new FootballFanException("There is football fan with such name!");
         }

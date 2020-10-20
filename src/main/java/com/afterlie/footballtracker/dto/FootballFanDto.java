@@ -1,12 +1,11 @@
 package com.afterlie.footballtracker.dto;
 
-import com.afterlie.footballtracker.model.FootballMatch;
-import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class FootballFanDto {
     private String name;
-    private List<FootballMatchDto> matches;
+    private Set<FootballMatchDto> matches;
 
     public String getName() {
         return name;
@@ -16,11 +15,11 @@ public class FootballFanDto {
         this.name = name;
     }
 
-    public List<FootballMatchDto> getMatches() {
+    public Set<FootballMatchDto> getMatches() {
         return matches;
     }
 
-    public void setMatches(List<FootballMatchDto> matches) {
+    public void setMatches(Set<FootballMatchDto> matches) {
         this.matches = matches;
     }
 

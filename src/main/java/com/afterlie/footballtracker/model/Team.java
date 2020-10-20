@@ -1,7 +1,6 @@
 package com.afterlie.footballtracker.model;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,8 +11,6 @@ public class Team {
     @Column(unique = true)
     private String name;
     private String country;
-    @ManyToMany
-    private List<FootballMatch> matches;
 
     public Team() {
     }
@@ -34,6 +31,14 @@ public class Team {
         this.name = name;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,12 +46,11 @@ public class Team {
         Team team = (Team) o;
         return Objects.equals(id, team.id) &&
                 Objects.equals(name, team.name) &&
-                Objects.equals(country, team.country) &&
-                Objects.equals(matches, team.matches);
+                Objects.equals(country, team.country);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, country, matches);
+        return Objects.hash(id, name, country);
     }
 }
