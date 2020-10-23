@@ -1,10 +1,11 @@
 package com.afterlie.footballtracker.service;
 
 import com.afterlie.footballtracker.dto.TeamDto;
+import com.afterlie.footballtracker.model.Team;
 import java.util.List;
 
 public interface TeamService {
-    TeamDto create(String teamName);
+    TeamDto create(TeamDto team);
 
     TeamDto getTeamById(Long id);
 
@@ -14,9 +15,9 @@ public interface TeamService {
 
     List<TeamDto> getAllTeamsByCountry(String country);
 
-    TeamDto update(TeamDto teamDto);
+    TeamDto update(Team team);
 
-    boolean deleteTeamById(Long id);
+    void deleteTeamById(Long id);
 
-    boolean deleteTeamByName(String name);
+    void deleteTeamByName(String name);
 }

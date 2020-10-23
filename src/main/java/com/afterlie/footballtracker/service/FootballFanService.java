@@ -16,5 +16,5 @@ public interface FootballFanService {
 
     List<FootballFanDto> getAllFootballFans();
 
-    boolean deleteFootballFanById(Long id);
+    void deleteFootballFanById(Long id);
 }

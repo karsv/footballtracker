@@ -1,11 +1,30 @@
 package com.afterlie.footballtracker.dto;
 
-import java.util.List;
+import java.util.Objects;
 
 public class TeamDto {
-    private String name;
+    private Long id;
+    private String teamName;
     private String country;
-    private List<FootballMatchDto> matches;
+
+    public TeamDto() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
 
     public String getCountry() {
         return country;
@@ -15,19 +34,18 @@ public class TeamDto {
         this.country = country;
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TeamDto teamDto = (TeamDto) o;
+        return Objects.equals(id, teamDto.id) &&
+                Objects.equals(teamName, teamDto.teamName) &&
+                Objects.equals(country, teamDto.country);
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<FootballMatchDto> getMatches() {
-        return matches;
-    }
-
-    public void setMatches(List<FootballMatchDto> matches) {
-        this.matches = matches;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, teamName, country);
     }
 }
